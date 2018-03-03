@@ -56,5 +56,9 @@ function render($view, $params = [])
   ));
 
   echo $twig->render($view . '.tmp', $params);
+}
 
+function ip()
+{
+  return $_SERVER['REMOTE_ADDR'];
 }
