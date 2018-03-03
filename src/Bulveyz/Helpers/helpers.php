@@ -1,5 +1,7 @@
 <?php
 
+use RedBeanPHP\R;
+
 /**
  * @param array $array
  *
