@@ -62,3 +62,10 @@ function ip()
 {
   return $_SERVER['REMOTE_ADDR'];
 }
+
+function checkConnect() {
+  if( !R::testConnection() )
+  {
+    exit('Error');
+  }
+}

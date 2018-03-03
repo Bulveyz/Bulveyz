@@ -25,14 +25,5 @@ class Db
   {
     R::setup( 'mysql:host='.$this->host.';'.'dbname='.$this->dbName.'',
         $this->user, $this->password );
-
-    return $this;
-  }
-
-  public function checkConnect() {
-    if( !R::testConnection() )
-    {
-      exit('Error');
-    }
   }
 }
