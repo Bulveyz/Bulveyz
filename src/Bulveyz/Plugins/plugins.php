@@ -5,10 +5,8 @@ use RedBeanPHP\R;
   function history()
   {
     if (getenv('PLUGIN_HISTORY') == 'true') {
-    $name = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-
-    $check = R::findOne('last', 'name = ?', array($name));
+    
+    $check = R::findOne('last', 'name = ?', array(parse_url($_SERVER['REQUEST_URI'])['path']));
 
     if ($check)
     {
@@ -24,7 +22,7 @@ use RedBeanPHP\R;
       $last = R::dispense('last');
       $last->ip = $_SERVER['SERVER_ADDR'];
       $last->last = $_SERVER['REQUEST_URI'];
-      $last->name = $name;
+      $last->name = parse_url($_SERVER['REQUEST_URI'])['path'];
       R::store($last);
 
       $last = R::findAll('last', "ip = ? ORDER BY id DESC LIMIT 5", array($_SERVER['SERVER_ADDR'] ));
