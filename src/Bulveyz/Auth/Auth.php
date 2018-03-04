@@ -116,12 +116,14 @@ class Auth
      } else {
        $this->userEmail = htmlspecialchars($_POST['email']);
        $this->userPassword = htmlspecialchars($_POST['password']);
-       $this->loadUser = R::findOne('users', 'email = ?', array($this->userEmail));
+       $loadUser = R::findOne('users', 'email = ?', array($this->userEmail));
      }
     if ($this->loadUser) {
       if (!password_verify($this->userPassword, $this->loadUser['password'])) {
         $this->errors[] = 'Data Wrong!';
       }
+    } else {
+      $this->errors[] = 'Account not found! You can <a href='.'/register'.'>register new account</a>';
     }
     if (empty($this->errors)) {
       $this->userToken = token();
@@ -131,21 +133,19 @@ class Auth
         ob_end_flush();
       }
 
-      $_SESSION['auth'] = [
-        'id' => $this->loadUser['id'],
-        'idSession' => $this->userToken,
-        'name' => $this->loadUser['name'],
-        'password' => $this->loadUser['password']
-      ];
-
-
       $loginUser = R::dispense('auth');
       $loginUser->user_id = $this->loadUser['id'];
       $loginUser->token = $this->userToken;
       $loginUser->date = time();
       R::store($loginUser);
 
-      redirect('/');
+        $_SESSION['auth'] = [
+            'id' => $this->loadUser['id'],
+            'idSession' => $this->userToken,
+            'name' => $this->loadUser['name'],
+            'password' => $this->loadUser['password']
+        ];
+        redirect('/');
 
     } else {
       echo "<div class='alert alert-danger' role='alert'>" . array_shift($this->errors) . "</div>";
