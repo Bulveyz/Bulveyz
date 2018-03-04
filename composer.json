@@ -17,7 +17,8 @@
     },
     "autoload": {
         "files": [
-            "src/Bulveyz/Helpers/helpers.php"
+            "src/Bulveyz/Helpers/helpers.php",
+            "src/Bulveyz/Plugins/plugins.php"
         ],
         "psr-4": {
             "Bulveyz\\": "src/Bulveyz/"
