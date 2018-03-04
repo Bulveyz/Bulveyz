@@ -6,15 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Bulveyz\\App\\Bulveyz' => $baseDir . '/src/Bulveyz/App/Bulveyz.php',
-    'Bulveyz\\Auth\\Auth' => $baseDir . '/src/Bulveyz/Auth/Auth.php',
-    'Bulveyz\\Db\\Db' => $baseDir . '/src/Bulveyz/Db/Db.php',
-    'Bulveyz\\Db\\Model' => $baseDir . '/src/Bulveyz/Db/Model.php',
-    'Bulveyz\\Middleware\\Middleware' => $baseDir . '/src/Bulveyz/Middleware/Middleware.php',
-    'Bulveyz\\Routing\\Controller' => $baseDir . '/src/Bulveyz/Routing/Controller.php',
-    'Bulveyz\\Routing\\Route' => $baseDir . '/src/Bulveyz/Routing/Route.php',
-    'Bulveyz\\Routing\\Router' => $baseDir . '/src/Bulveyz/Routing/Router.php',
-    'Bulveyz\\Routing\\RouterCollection' => $baseDir . '/src/Bulveyz/Routing/RouterCollection.php',
     'Kint' => $vendorDir . '/kint-php/kint/src/Kint.php',
     'Kint_Object' => $vendorDir . '/kint-php/kint/src/Object.php',
     'Kint_Object_Blob' => $vendorDir . '/kint-php/kint/src/Object/Blob.php',

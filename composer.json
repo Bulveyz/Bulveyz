@@ -22,7 +22,6 @@
         ],
         "psr-4": {
             "Bulveyz\\": "src/Bulveyz/"
-        },
-        "classmap": ["src"]
+        }
     }
 }

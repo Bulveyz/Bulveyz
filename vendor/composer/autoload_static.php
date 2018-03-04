@@ -83,15 +83,6 @@ class ComposerStaticInita2a4d6c761c42d60adbeed5d0d828e12
     );
 
     public static $classMap = array (
-        'Bulveyz\\App\\Bulveyz' => __DIR__ . '/../..' . '/src/Bulveyz/App/Bulveyz.php',
-        'Bulveyz\\Auth\\Auth' => __DIR__ . '/../..' . '/src/Bulveyz/Auth/Auth.php',
-        'Bulveyz\\Db\\Db' => __DIR__ . '/../..' . '/src/Bulveyz/Db/Db.php',
-        'Bulveyz\\Db\\Model' => __DIR__ . '/../..' . '/src/Bulveyz/Db/Model.php',
-        'Bulveyz\\Middleware\\Middleware' => __DIR__ . '/../..' . '/src/Bulveyz/Middleware/Middleware.php',
-        'Bulveyz\\Routing\\Controller' => __DIR__ . '/../..' . '/src/Bulveyz/Routing/Controller.php',
-        'Bulveyz\\Routing\\Route' => __DIR__ . '/../..' . '/src/Bulveyz/Routing/Route.php',
-        'Bulveyz\\Routing\\Router' => __DIR__ . '/../..' . '/src/Bulveyz/Routing/Router.php',
-        'Bulveyz\\Routing\\RouterCollection' => __DIR__ . '/../..' . '/src/Bulveyz/Routing/RouterCollection.php',
         'Kint' => __DIR__ . '/..' . '/kint-php/kint/src/Kint.php',
         'Kint_Object' => __DIR__ . '/..' . '/kint-php/kint/src/Object.php',
         'Kint_Object_Blob' => __DIR__ . '/..' . '/kint-php/kint/src/Object/Blob.php',
