@@ -39,35 +39,3 @@ function token() {
   return str_replace('.', '', $token);
 }
 
-/**
- * @param $view
- * @param array $params
- * @throws Twig_Error_Loader
- * @throws Twig_Error_Runtime
- * @throws Twig_Error_Syntax
- *
- * Render
- *
- * Create new view and render params to template
- */
-function render($view, $params = [])
-{
-  $loader = new \Twig_Loader_Filesystem(getenv('DIR_TEMPLATES'));
-  $twig = new \Twig_Environment($loader, array(
-      'cache' => false
-  ));
-
-  echo $twig->render($view . '.tmp', $params);
-}
-
-function ip()
-{
-  return $_SERVER['REMOTE_ADDR'];
-}
-
-function checkConnect() {
-  if( !R::testConnection() )
-  {
-    exit('Error');
-  }
-}
