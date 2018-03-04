@@ -14,7 +14,7 @@
         "kint-php/kint": "^2.2",
         "nesbot/carbon": "~1.18",
         "vlucas/phpdotenv": "^2.4",
-        "bulveyz/bulveyz": "dev-master"
+        "phpmailer/phpmailer": "~6.0"
     },
     "autoload": {
         "files": [

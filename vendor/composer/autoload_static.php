@@ -27,6 +27,10 @@ class ComposerStaticInita2a4d6c761c42d60adbeed5d0d828e12
         array (
             'RedBeanPHP\\' => 11,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'D' => 
         array (
             'Dotenv\\' => 7,
@@ -58,6 +62,10 @@ class ComposerStaticInita2a4d6c761c42d60adbeed5d0d828e12
         array (
             0 => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
@@ -86,7 +94,9 @@ class ComposerStaticInita2a4d6c761c42d60adbeed5d0d828e12
         'Bulveyz\\App\\Bulveyz' => __DIR__ . '/../..' . '/src/Bulveyz/App/Bulveyz.php',
         'Bulveyz\\Auth\\Auth' => __DIR__ . '/../..' . '/src/Bulveyz/Auth/Auth.php',
         'Bulveyz\\Db\\Db' => __DIR__ . '/../..' . '/src/Bulveyz/Db/Db.php',
+        'Bulveyz\\Db\\Model' => __DIR__ . '/../..' . '/src/Bulveyz/Db/Model.php',
         'Bulveyz\\Middleware\\Middleware' => __DIR__ . '/../..' . '/src/Bulveyz/Middleware/Middleware.php',
+        'Bulveyz\\Routing\\Controller' => __DIR__ . '/../..' . '/src/Bulveyz/Routing/Controller.php',
         'Bulveyz\\Routing\\Route' => __DIR__ . '/../..' . '/src/Bulveyz/Routing/Route.php',
         'Bulveyz\\Routing\\Router' => __DIR__ . '/../..' . '/src/Bulveyz/Routing/Router.php',
         'Bulveyz\\Routing\\RouterCollection' => __DIR__ . '/../..' . '/src/Bulveyz/Routing/RouterCollection.php',
