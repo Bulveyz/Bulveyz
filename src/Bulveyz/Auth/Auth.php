@@ -5,8 +5,6 @@ namespace Bulveyz\Auth;
 ob_start();
 
 use RedBeanPHP\R;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 class Auth
 {
@@ -236,23 +234,7 @@ class Auth
           'email' => $_POST['email']
         ];
 
-        $mail = new PHPMailer();
-        $mail->SMTPDebug = 0;                                 // Enable verbose debug output
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.mail.ru';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'rus131354@mail.ru';                 // SMTP username
-        $mail->Password = 'crfn131374';
-        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 465;
-
-        $mail->setFrom('rus131354@mail.ru', 'Bulveyz');
-        $mail->addAddress($_POST['email'], 'Bulveyz');     // Add a recipient
-        $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = "Your link for reset password: ".'https://bulveyz2.0.test/restore/'.$_SESSION['reset']['token']."";
-        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-        $mail->send();
+        mail($_POST['email'], 'Reset Password', "Your link for reset password: ".'https://bulveyz2.0.test/restore/'.$_SESSION['reset']['token']."", 'BulveyzTeam');
 
         echo "<div class='alert alert-success' role='alert'>A password recovery link has been sent to the email</div>";
       } else {
