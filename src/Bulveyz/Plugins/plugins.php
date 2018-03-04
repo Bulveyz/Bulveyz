@@ -2,9 +2,9 @@
 
 use RedBeanPHP\R;
 
-if (getenv('PLUGIN_HISTORY') == 'true') {
   function history()
   {
+    if (getenv('PLUGIN_HISTORY') == 'true') {
     $name = substr($_SERVER['REQUEST_URI'], 3, -4);
 
 
