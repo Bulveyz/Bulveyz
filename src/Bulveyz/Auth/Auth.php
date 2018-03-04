@@ -114,10 +114,12 @@ class Auth
      if ($_POST['email'] == '' || $_POST['password'] == '') {
        $this->errors[] = 'Fill in all the fields!';
      } else {
-       $loadUser = R::findOne('users', 'email = ?', array($_POST['email']));
+       $this->userEmail = htmlspecialchars($_POST['email']);
+       $this->userPassword = htmlspecialchars($_POST['password']);
+       $loadUser = R::findOne('users', 'email = ?', array($this->userEmail));
      }
-    if ($loadUser) {
-      if (!password_verify($_POST['password'], $loadUser['password'])) {
+    if ($this->loadUser) {
+      if (!password_verify($this->userPassword, $this->loadUser['password'])) {
         $this->errors[] = 'Data Wrong!';
       }
     } else {
@@ -132,16 +134,16 @@ class Auth
       }
 
       $loginUser = R::dispense('auth');
-      $loginUser->user_id = $loadUser['id'];
+      $loginUser->user_id = $this->loadUser['id'];
       $loginUser->token = $this->userToken;
       $loginUser->date = time();
       R::store($loginUser);
 
         $_SESSION['auth'] = [
-            'id' => $loadUser['id'],
+            'id' => $this->loadUser['id'],
             'idSession' => $this->userToken,
-            'name' => $loadUser['name'],
-            'password' => $loadUser['password']
+            'name' => $this->loadUser['name'],
+            'password' => $this->loadUser['password']
         ];
         redirect('/');
 
@@ -294,11 +296,11 @@ class Auth
       if ($_POST['admin'] == '' || $_POST['password'] == '') {
         $this->errors[] = 'Input all fields!';
       }
-      $admin = R::findOne('admins', 'name = ?', array($_POST['name']));
-      if ($admin) {
-        if (!password_verify($_POST['password'], $admin['password'])) {
-          $this->errors[] = 'Data Wrong!';
-        }
+      $admin = R::findOne('admins', 'name = ?', array($_POST['admin']));
+      if (!$admin) {
+       if (!password_verify($_POST['password'], $admin['password'])) {
+         $this->errors[] = 'Wrong data!';
+       }
       }
       if (empty($this->errors)) {
         $key = token();
@@ -308,11 +310,11 @@ class Auth
         R::store($create);
 
         $_SESSION['admin'] = [
-            'name' => $admin['name'],
-            'key' => $key
+          'name' => $admin['name'],
+          'key' => $key
         ];
 
-        redirect(getenv('ADMIN_PANEL'));
+        redirect('/panel');
       } else {
         echo "<div class='alert alert-danger' role='alert'>" . array_shift($this->errors) . "</div>";
       }
@@ -328,7 +330,7 @@ class Auth
    */
   public static function auth()
   {
-    if (isset($_SESSION['auth'])) {
+    if (isset($_SESSION['auth']) || isset($_SESSION['admin'])) {
       return true;
     } else {
       return false;
