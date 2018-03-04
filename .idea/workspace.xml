@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bbd1bc0e-62bf-4cbe-b45f-95309c176bf0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Bulveyz/Auth/Auth.php" afterPath="$PROJECT_DIR$/src/Bulveyz/Auth/Auth.php" />
-      <change beforePath="$PROJECT_DIR$/src/Bulveyz/Helpers/helpers.php" afterPath="$PROJECT_DIR$/src/Bulveyz/Helpers/helpers.php" />
+      <change beforePath="$PROJECT_DIR$/src/Bulveyz/Admin/Admin.php" afterPath="$PROJECT_DIR$/src/Bulveyz/Admin/Admin.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,18 +31,18 @@
       <file leaf-file-name="helpers.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bulveyz/Helpers/helpers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+            <state relative-caret-position="62">
+              <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Auth.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Auth.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bulveyz/Auth/Auth.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="789">
-              <caret line="314" column="40" lean-forward="true" selection-start-line="314" selection-start-column="40" selection-end-line="314" selection-end-column="40" />
+              <caret line="314" column="40" lean-forward="false" selection-start-line="314" selection-start-column="40" selection-end-line="314" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -79,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Bulveyz/Admin/Admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            <state relative-caret-position="465">
+              <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -149,10 +148,10 @@
         <option value="$PROJECT_DIR$/src/Bulveyz/Routing/RouterCollection.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/Bulveyz/Admin/adminSettings.php" />
-        <option value="$PROJECT_DIR$/src/Bulveyz/Admin/Admin.php" />
         <option value="$PROJECT_DIR$/src/Bulveyz/Middleware/Middleware.php" />
-        <option value="$PROJECT_DIR$/src/Bulveyz/Helpers/helpers.php" />
         <option value="$PROJECT_DIR$/src/Bulveyz/Auth/Auth.php" />
+        <option value="$PROJECT_DIR$/src/Bulveyz/Helpers/helpers.php" />
+        <option value="$PROJECT_DIR$/src/Bulveyz/Admin/Admin.php" />
       </list>
     </option>
   </component>
@@ -697,14 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bulveyz/Admin/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Bulveyz/Admin/adminSettings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
@@ -729,14 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bulveyz/Helpers/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Bulveyz/Db/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3121">
@@ -748,7 +731,23 @@
     <entry file="file://$PROJECT_DIR$/src/Bulveyz/Auth/Auth.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="789">
-          <caret line="314" column="40" lean-forward="true" selection-start-line="314" selection-start-column="40" selection-end-line="314" selection-end-column="40" />
+          <caret line="314" column="40" lean-forward="false" selection-start-line="314" selection-start-column="40" selection-end-line="314" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bulveyz/Helpers/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bulveyz/Admin/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
           <folding />
         </state>
       </provider>

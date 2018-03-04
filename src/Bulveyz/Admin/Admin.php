@@ -8,10 +8,12 @@ class Admin
 {
   public static function admin()
   {
-    if (R::count('admina', 'key = ?', array($_SESSION['admin']['key'])) > 0) {
-      return true;
-    } else {
-      return false;
+    if (isset($_SESSION['admin'])) {
+      if (R::count('admina', 'key = ?', array($_SESSION['admin']['key'])) > 0) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 }
