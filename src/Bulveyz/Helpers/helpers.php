@@ -38,4 +38,3 @@ function token() {
   $token = microtime(true) . rand(100,10000000000000);
   return str_replace('.', '', $token);
 }
-
