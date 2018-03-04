@@ -13,7 +13,7 @@ class Controller
       $this->params = $params;
     }
 
-    $loader = new \Twig_Loader_Filesystem(getenv('TEMPLATES_DIR'));
+    $loader = new \Twig_Loader_Filesystem(getenv('DIR_TEMPLATES'));
     $twig = new \Twig_Environment($loader, array(
         'cache' => false
     ));
