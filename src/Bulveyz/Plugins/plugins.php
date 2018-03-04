@@ -5,7 +5,7 @@ use RedBeanPHP\R;
   function history()
   {
     if (getenv('PLUGIN_HISTORY') == 'true') {
-    $name = substr($_SERVER['REQUEST_URI'], 3, -4);
+    $name = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 
     $check = R::findOne('last', 'name = ?', array($name));
