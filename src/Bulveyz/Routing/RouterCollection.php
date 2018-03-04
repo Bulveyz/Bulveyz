@@ -98,7 +98,7 @@ class RouterCollection
     $router = new RouterCollection();
     require_once 'routes/web.php';
     if (getenv('AUTH') == 'true') {
-      require_once __DIR__ . '../Auth/authSettings.php';
+      require_once __DIR__ . '../../Auth/authSettings.php';
     }
     $route = new Router($router);
     $route->math()->connect();
