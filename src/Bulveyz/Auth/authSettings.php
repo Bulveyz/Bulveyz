@@ -48,6 +48,16 @@ $router->any('restore/{token}', function ($request){
   echo $twig->render('restore.tmp');
 });
 
+$router->any('login/admin', function ($request){
+  $reset = new Bulveyz\Auth\Auth();
+  $reset->adminLogin();
+  $loader = new \Twig_Loader_Filesystem(__DIR__ . '/templates/');
+  $twig = new \Twig_Environment($loader, array(
+      'cache' => false
+  ));
+  echo $twig->render('admin.tmp');
+});
+
 $router->get('/logout', function (){
   if (isset($_SESSION['auth'])) {
     $logout = new Bulveyz\Auth\Auth();
