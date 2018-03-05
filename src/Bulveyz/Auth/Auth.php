@@ -285,41 +285,6 @@ class Auth
   }
 
   /**
-   * Admin LogIn
-   *
-   */
-  public function adminLogin()
-  {
-    if (isset($_POST['goAdmin'])) {
-      if ($_POST['admin'] == '' || $_POST['password'] == '') {
-        $this->errors[] = 'Input all fields!';
-      }
-      $admin = R::findOne('admins', 'name = ?', array($_POST['admin']));
-      if (!$admin) {
-       if (!password_verify($_POST['password'], $admin['password'])) {
-         $this->errors[] = 'Wrong data!';
-       }
-      }
-      if (empty($this->errors)) {
-        $key = token();
-        $create = R::dispense('admina');
-        $create->admin_id = $admin['id'];
-        $create->key = $key;
-        R::store($create);
-
-        $_SESSION['admin'] = [
-          'name' => $admin['name'],
-          'key' => $key
-        ];
-
-        redirect('/panel');
-      } else {
-        echo "<div class='alert alert-danger' role='alert'>" . array_shift($this->errors) . "</div>";
-      }
-    }
-  }
-
-  /**
    * @return bool
    *
    * Auth
