@@ -18,7 +18,7 @@
                 <h1 class="text-center">SignUp</h1>
                 <label>Login:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" name="login" value="{{ login }}" required>
+                    <input type="text" class="form-control" name="name" value="{{ name }}" required>
                 </div>
                 <br>
                 <label>Email:</label>

@@ -2,8 +2,6 @@
 
 namespace Bulveyz\Middleware;
 
-use RedBeanPHP\R;
-
 class Middleware
 {
   public static function access(string $userGroup)

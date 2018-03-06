@@ -2,7 +2,6 @@
 
 namespace Bulveyz\App;
 
-use Bulveyz\Admin\Admin;
 use Dotenv\Dotenv;
 use Bulveyz\Db\Db;
 use Bulveyz\Auth\Auth;
@@ -21,9 +20,6 @@ class Bulveyz
 
   /** @var Db */
   public $db;
-
-  /** @var Admin */
-  public $admin;
 
   /** @var Auth */
   public $auth;
@@ -46,14 +42,9 @@ class Bulveyz
     self::$instance->db = new Db(getenv('DB_HOST'), getenv('DB_NAME'), getenv('DB_USER'), getenv('DB_PASSWORD'));
     self::$instance->db->connect();
 
-    if (getenv('ADMIN_PANEL') == 'true') {
-      self::$instance->admin = new Admin();
-      self::$instance->admin->adminSeeMode();
-    }
-
     if (getenv('AUTH') == 'true') {
       self::$instance->auth = new Auth();
-      self::$instance->auth->authStart();
+      self::$instance->auth->authorization();
     }
 
     self::$instance->router = new RouterCollection();
