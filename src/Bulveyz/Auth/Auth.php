@@ -22,10 +22,10 @@ class Auth
     }
   }
 
-  public function userExit($token = false)
+  public function userExit()
   {
-    if ($token) {
-      $load_session = R::findOne('auth', 'token = ?', array($token));
+    if (isset($_SESSION['auth'])) {
+      $load_session = R::findOne('authorization', 'token = ?', array($_SESSION['auth']['token']));
 
       if ($load_session) {
         R::trash($load_session);
@@ -44,7 +44,7 @@ class Auth
 
   public function signUp()
   {
-    if ($_POST['name'] == '' || $_POST['email'] == '' || $_POST['password'] == '' || $_POST['confirmPassword']) {
+    if ($_POST['name'] == '' || $_POST['email'] == '' || $_POST['password'] == '' || $_POST['confirmPassword'] == '') {
       $this->errors[] = 'Fill in all the fields';
     }
     if (R::count('users', 'name = ?', array($_POST['name'])) > 0) {
@@ -64,7 +64,7 @@ class Auth
       $createUser = R::dispense('users');
       $createUser->name = strip_tags($_POST['name']);
       $createUser->email = strip_tags($_POST['email']);
-      $createUser->password = strip_tags($_POST['password']);
+      $createUser->password = password_hash(strip_tags($_POST['password']), PASSWORD_DEFAULT);
       R::store($createUser);
 
       redirect('/login');
@@ -83,11 +83,16 @@ class Auth
     if (R::count('users', 'email = ?', array($_POST['email'])) == 0) {
       $this->errors[] = 'Account not found! You can <a href='.'/register'.'>register new account</a>';
     }
-    if ($_POST['password'] != $this->loadUser['password']) {
+    if (!password_verify($_POST['password'], $this->loadUser['password'])) {
       $this->errors[] = 'Wrong login or password';
     }
 
     if (empty($this->errors)) {
+      $find = R::findOne('authorization', 'user_id = ?', array($this->loadUser['id']));
+      if ($find) {
+        R::trash($find);
+      }
+
       $this->token = token();
 
       $authorization = R::dispense('authorization');

@@ -29,8 +29,8 @@ $router->any('register', function (){
       'cache' => false
   ));
   echo $twig->render('register.tmp', [
-      'email' => @$_POST['name'],
-      'login' => @$_POST['login'],
+      'name' => @$_POST['name'],
+      'email' => @$_POST['email']
   ]);
 });
 
@@ -67,7 +67,7 @@ $router->any('restore/{token}', function ($request){
 $router->get('/logout', function (){
   if (isset($_SESSION['auth'])) {
     $logout = new Bulveyz\Auth\Auth();
-    $logout->userExit($_SESSION['auth']['idSession']);
+    $logout->userExit($_SESSION['auth']['token']);
   } else {
     redirect('/');
   }

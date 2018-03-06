@@ -2,6 +2,8 @@
 
 namespace Bulveyz\Db;
 
+use RedBeanPHP\R;
+
 class Db
 {
   private $host;
@@ -17,5 +19,12 @@ class Db
     $this->password = $password;
 
     return $this;
+  }
+
+  public function connect()
+  {
+    R::setup( 'mysql:host='.$this->host.';'.'dbname='.$this->dbName.'',
+        $this->user, $this->password );
+    session_start();
   }
 }

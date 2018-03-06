@@ -18,7 +18,7 @@
                 <h1 class="text-center">LogIn</h1>
                 <label>Email:</label>
                 <div class="input-group">
-                    <input type="email" class="form-control" name="email">
+                    <input type="email" class="form-control" name="email" value="{{ email }}">
                 </div>
                 <br>
                 <label>Password:</label>
