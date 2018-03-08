@@ -98,6 +98,7 @@ class Auth
       $authorization = R::dispense('authorization');
       $authorization->user_id = $this->loadUser['id'];
       $authorization->token = $this->token;
+      $authorization->time = time();
 
       if (R::store($authorization)) {
         $_SESSION['auth'] = [
@@ -133,7 +134,7 @@ class Auth
 
   public function checkAuthWithCookie()
   {
-    $loadSession = R::findOne('auth', 'token = ?', array($_COOKIE['auth']));
+    $loadSession = R::findOne('authorization', 'token = ?', array($_COOKIE['auth']));
 
     if ($loadSession) {
       $loadUser = R::load('users', $loadSession['user_id']);
@@ -183,16 +184,19 @@ class Auth
         if ($_POST['password'] != $_POST['password2']) {
           $this->errors[] = 'The passwords you entered do not match!';
         }
+        if (strlen($_POST['password']) < 8) {
+          $this->errors[] = 'The password must contain at least 8 characters!';
+        }
         if (empty($this->errors)) {
           $changeData = R::findOne('users', 'email = ?', array($_SESSION['reset']['email']));
           $changeData->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
           if (R::store($changeData)) {
-            $loadAuthSession = R::findAll('auth', 'user_id = ?', array($changeData['id']));
+            $loadAuthSession = R::findAll('authorization', 'user_id = ?', array($changeData['id']));
 
             foreach ($loadAuthSession as $load)
             {
-              R::trash('auth', $load['id']);
+              R::trash('authorization', $load['id']);
             }
 
             mail($_POST['email'], 'Reset Password', "Your password will be restored", 'BulveyzTeam');

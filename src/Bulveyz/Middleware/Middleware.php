@@ -31,4 +31,14 @@ class Middleware
       exit($error);
     }
   }
+
+
+  public static function check($session)
+  {
+    if (isset($_SESSION[$session])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
