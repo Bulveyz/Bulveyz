@@ -2,7 +2,6 @@
 
 namespace Bulveyz\plugins;
 
-use Bulveyz\Db\Model;
 use RedBeanPHP\R;
 
 class Paginator
