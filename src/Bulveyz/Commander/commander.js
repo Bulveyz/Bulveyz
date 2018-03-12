@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
     }
     else if (command == 'make controller') {
       term.push(function (command, term) {
-            $.post('http://bloge.test/bcommander/makecontroller', {command: command}).then(function(response) {
+            $.post('/bcommander/makecontroller', {command: command}).then(function(response) {
               if (response === '')
               {
                 term.echo(command.charAt(0).toUpperCase() + command.slice(1) + 'Controller created');
@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
     }
     else if (command == 'make model') {
       term.push(function (command, term) {
-            $.post('http://bloge.test/bcommander/makemodel', {command: command}).then(function(response) {
+            $.post('/bcommander/makemodel', {command: command}).then(function(response) {
               if (response === '')
               {
                 term.echo(command.charAt(0).toUpperCase() + command.slice(1) + ' model created');
@@ -48,7 +48,7 @@ jQuery(document).ready(function($) {
     }
     else if (command == 'make -c -m') {
       term.push(function (command, term) {
-            $.post('http://bloge.test/bcommander/makecontrollerandmodel', {command: command}).then(function(response) {
+            $.post('/bcommander/makecontrollerandmodel', {command: command}).then(function(response) {
               if (response === '')
               {
                 term.echo(command.charAt(0).toUpperCase() + command.slice(1) + 'Controller and model created');
@@ -64,7 +64,7 @@ jQuery(document).ready(function($) {
           });
     }
     else if (command == 'make auth') {
-      $.get('http://bloge.test/bcommander/makeauth', {command: command}).then(function(response) {
+      $.get('/bcommander/makeauth', {command: command}).then(function(response) {
         if (response === '')
         {
           term.echo('Auth created');
@@ -76,7 +76,7 @@ jQuery(document).ready(function($) {
     }
     else if (command == 'table trash rows') {
       term.push(function (command, term) {
-        $.post('http://bloge.test/bcommander/trashall', {command: command}).then(function(response) {
+        $.post('/bcommander/trashall', {command: command}).then(function(response) {
           if (response === '')
           {
             term.echo('Table rows clear');
@@ -89,7 +89,7 @@ jQuery(document).ready(function($) {
     }
     else if (command == 'new admin') {
       term.push(function (command, term) {
-            $.post('http://bloge.test/bcommander/newadmin', {command: command}).then(function(response) {
+            $.post('/bcommander/newadmin', {command: command}).then(function(response) {
               if (response === '')
               {
                 term.echo('admin added');
