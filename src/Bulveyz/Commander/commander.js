@@ -18,6 +18,7 @@ jQuery(document).ready(function($) {
               if (response === '')
               {
                 term.echo(command.charAt(0).toUpperCase() + command.slice(1) + 'Controller created');
+                term.pop();
               }
               else {
                 term.error(response);
@@ -30,11 +31,15 @@ jQuery(document).ready(function($) {
           });
     }
     else if (command == 'make model') {
+      var history = term.history();
+      history.disable();
       term.push(function (command, term) {
             $.post('/bcommander/makemodel', {command: command}).then(function(response) {
               if (response === '')
               {
                 term.echo(command.charAt(0).toUpperCase() + command.slice(1) + ' model created');
+                term.pop();
+                history.enable();
               }
               else {
                 term.error(response);
@@ -52,6 +57,7 @@ jQuery(document).ready(function($) {
               if (response === '')
               {
                 term.echo(command.charAt(0).toUpperCase() + command.slice(1) + 'Controller and model created');
+                term.pop();
               }
               else {
                 term.error(response);
@@ -80,6 +86,7 @@ jQuery(document).ready(function($) {
           if (response === '')
           {
             term.echo('Table rows clear');
+            term.pop();
           }
           else {
             term.error(response);
@@ -93,6 +100,7 @@ jQuery(document).ready(function($) {
               if (response === '')
               {
                 term.echo('admin added');
+                term.pop();
               }
               else {
                 term.error(response);
@@ -110,5 +118,3 @@ jQuery(document).ready(function($) {
     greetings: "Bulveyz Commander ('help' for all commands)"
   });
 });
-
-console.log('asdasd'.charAt(0).toUpperCase() + 'asdasd'.slice(1))
