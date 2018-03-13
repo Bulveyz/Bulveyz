@@ -117,4 +117,4 @@ jQuery(document).ready(function($) {
   }, {
     greetings: "Bulveyz Commander ('help' for all commands)"
   });
-});console.log('asdasd'.charAt(0).toUpperCase() + 'asdasd'.slice(1))
+});
