@@ -8,25 +8,24 @@
     <link rel="stylesheet" href="libs/bootstrap.css">
     <link rel="stylesheet" href="libs/aos.css">
     <link rel="stylesheet" href="css/main.css">
-    <title>Login</title>
+    <title>Welcome</title>
 </head>
 <body>
+<header>
+    {% include 'main/header.tmp' %}
+</header>
 <main>
     <div class="center_block">
-        <div class="hello" data-aos="fade" data-aos-duration="1000">
-            <form action="" method="post">
-                <h1 class="text-center">Reset</h1>
-                <label>E-Mail</label>
-                <div class="input-group">
-                    <input class="form-control" type="email" name="email" required>
-                </div>
-                <br>
-                <div class="input-group">
-                    <div class="text-right w-100">
-                        <button class="btn btn-primary" name="requestReset">Next</button>
-                    </div>
-                </div>
-            </form>
+        <div class="hello" data-aos="fade" data-aos-duration="2000">
+            <h1 class="text-center">Bulveyz</h1>
+            <p class="text-center">
+                Very simple and smart framework for PHP!
+            </p>
+
+            <div class="hello__link text-center">
+                <a href="https://github.com/Bulveyz/Bulveyz-Fast">GitHub</a>
+                <a href="http://bulveyz-fast.ml">Documentation</a>
+            </div>
         </div>
     </div>
 </main>
